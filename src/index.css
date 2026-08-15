@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@theme {
+  --font-display: "Chakra Petch", "Inter", sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-void: #0A0B0F;
+  --color-surface: #14161D;
+  --color-surface-2: #1B1E28;
+  --color-border-line: #2A2E3A;
+  --color-mist: #EDEEF3;
+  --color-mist-dim: #9598A6;
+
+  --color-vault-violet: #7B2FF7;
+  --color-vault-cyan: #00E5FF;
+  --color-alert: #FF3D71;
+  --color-alert-dim: #ff3d711a;
+
+  --color-legendary: #E9A23B;
+  --color-epic: #B646E2;
+  --color-rare: #4B7CE8;
+  --color-uncommon: #4CAF6E;
+
+  --animate-scanline: scanline 2.2s linear infinite;
+  --animate-pulse-slow: pulseSlow 3s ease-in-out infinite;
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes scanline {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100%); opacity: 0; }
+  }
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border-line);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-void);
+    color: var(--color-mist);
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(123, 47, 247, 0.18), transparent),
+      radial-gradient(ellipse 60% 40% at 90% 10%, rgba(0, 229, 255, 0.08), transparent);
+    background-attachment: fixed;
+  }
+  ::selection {
+    background-color: var(--color-vault-violet);
+    color: white;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-vault-cyan);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(90deg, var(--color-vault-cyan), var(--color-vault-violet));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .border-glow {
+    box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.25), 0 0 24px -8px rgba(123, 47, 247, 0.5);
+  }
+  .grid-fade {
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+}
