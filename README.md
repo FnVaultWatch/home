@@ -4,7 +4,7 @@ Track Fortnite skins and get flagged the moment they're expected back in the ite
 
 Built with React, Vite, Tailwind CSS v4, and hand-built shadcn/ui-style components. Live shop and cosmetics data comes from [Fortnite-API.com](https://fortnite-api.com).
 
-## ⚠️ Important: this is a static site
+## ⚠️ Important: this is a static site 鹿
 
 GitHub Pages only serves static files — it can't run a server. That means:
 
